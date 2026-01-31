@@ -77,7 +77,7 @@ def get_note_cookies(email, password):
         login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
         login_button.click()
         
-        [span_4](start_span)time.sleep(10) # ログイン待機[span_4](end_span)
+        [span_4](start_span)time.sleep(10) [span_4](end_span)
         
         cookies = driver.get_cookies()
         cookie_dict = {}
