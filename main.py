@@ -132,7 +132,7 @@ def post_to_note(cookies, xsrf_token, title, html_content):
     }
     
     # 1. 新規作成（枠の確保）
-    create_url = 'https://note.com/api/v1/text_notes'
+    create_url = 'https://note.com/api/v5/text_notes'
     payload = {
         'body': html_content,
         'name': title,
