@@ -30,7 +30,7 @@ def generate_article_by_gemini():
     topics = ["最新のテクノロジートレンド", "効率的なプログラミング学習法", "AIツールの活用術", "リモートワークのコツ", "日々の生活ハック"]
     topic = random.choice(topics)
     
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-3-flash-preview')
     
     prompt = f"""
     note.comに投稿するためのブログ記事を書いてください。
