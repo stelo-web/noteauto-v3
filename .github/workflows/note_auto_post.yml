@@ -1,0 +1,36 @@
+name: Note Auto Post
+
+on:
+  schedule:
+    # UTC時間で設定 (JST - 9時間)
+    # 0:00 UTC -> 9:00 JST (朝)
+    # 4:00 UTC -> 13:00 JST (昼)
+    # 10:00 UTC -> 19:00 JST (夜)
+    - cron: '0 0 * * *'
+    - cron: '0 4 * * *'
+    - cron: '0 10 * * *'
+  workflow_dispatch: # 手動実行ボタンも有効化
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Auto Post Script
+      env:
+        NOTE_EMAIL: ${{ secrets.NOTE_EMAIL }}
+        NOTE_PASSWORD: ${{ secrets.NOTE_PASSWORD }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: python main.py
