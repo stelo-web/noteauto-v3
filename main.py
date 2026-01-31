@@ -74,7 +74,7 @@ def get_note_session_info(email, password):
         
         # メールアドレス入力（複数のセレクタで試行）
         email_field = wait.until(EC.presence_of_element_located((
-            By.CSS_SELECTOR, 'input[type="email"], input[name="email"]'
+            By.CSS_SELECTOR, 'input[id="email"], input[name="email"]'
         )))
         email_field.send_keys(email)
         
